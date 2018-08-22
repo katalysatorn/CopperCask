@@ -14,19 +14,20 @@
         <b-nav-form>
           <b-form-input size="sm" id="dicerollerform" class="mr-sm-2" type="text" placeholder="Try '2d6 + 3, 8d5 - 4'" />
         </b-nav-form>
-        <b-button size="sm" class="my-2 my-sm-0" type="submit">Preferences</b-button>
+        <b-button size="sm" class="my-2 my-sm-0">Preferences</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 
-@Component
-export default class Navbar extends Vue {
-  @Prop() private brand!: string
-}
+export default Vue.extend({
+  props: {
+    brand: String
+  }
+})
 </script>
 
 <style scoped lang="scss">

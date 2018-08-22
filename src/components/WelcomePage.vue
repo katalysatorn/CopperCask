@@ -12,7 +12,8 @@ export default Vue.extend({
     return {
       header: 'CopperCask',
       leader: 'A simple character manager for tabletop RPG\'s',
-      contactmail: 'mailto:blair.burton@outlook.com'
+      contactmail: 'mailto:blair.burton@outlook.com',
+      information: ''
     }
   }
 })

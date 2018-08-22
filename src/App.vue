@@ -6,17 +6,16 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import Vue from 'vue'
 import Navbar from './components/Navbar.vue'
 import WelcomePage from './components/WelcomePage.vue'
 
-@Component({
+export default Vue.extend({
   components: {
-  Navbar,
-  WelcomePage,
-  },
-  })
-export default class App extends Vue {}
+    Navbar,
+    WelcomePage
+  }
+})
 </script>
 
 <style lang="scss">
