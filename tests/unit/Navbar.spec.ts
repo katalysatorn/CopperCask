@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils'
 import Navbar from '@/components/Navbar.vue'
 
 describe('Navbar.vue', () => {
-  it('Renders props.brand when passed', () => {
+  it('Renders passed props correctly when passed', () => {
     const brand = 'coppercask-example-message'
     const wrapper = shallowMount(Navbar, {
       propsData: { brand }
