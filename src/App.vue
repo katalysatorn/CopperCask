@@ -1,7 +1,21 @@
 <template>
   <div id="app">
     <Navbar brand="CopperCask" />
-    <WelcomePage />
+    <WelcomePage
+      header="CopperCask"
+      brand="img/logo.png"
+      leader="A simple character manager for tabletop RPG's"
+      :buttons="[
+        {
+          text: 'Contact the developer',
+          link: 'mailto:blair.burton@outlook.com'
+        },
+        {
+          text: 'See the source',
+          link: 'https://github.com/katalysatorn/CopperCask'
+        }
+      ]"
+    />
   </div>
 </template>
 
