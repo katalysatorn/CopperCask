@@ -12,7 +12,7 @@
 
       <b-navbar-nav class="ml-auto">
         <b-nav-form>
-          <b-form-input size="sm" id="dicerollerform" class="mr-sm-2" type="text" placeholder="Try '2d6 + 3, 8d5 - 4'" />
+          <b-form-input v-model="diceString" size="sm" id="dicerollerform" class="mr-sm-2" type="text" placeholder="Try '2d6 + 3, 8d5 - 4'" />
         </b-nav-form>
         <b-button size="sm" class="my-2 my-sm-0">Preferences</b-button>
       </b-navbar-nav>
@@ -22,10 +22,28 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import dicerollerSubmit from '../Diceroller'
 
 export default Vue.extend({
   props: {
     brand: String
+  },
+  data: () => {
+    return {
+      diceString: ''
+    }
+  },
+  mounted () {
+    let f: HTMLElement | null = document.getElementById('dicerollerform')
+
+    if (f) {
+      f.addEventListener('keydown', (e) => {
+        if (e.keyCode === 13) {
+          e.preventDefault()
+          console.log(dicerollerSubmit(this.diceString))
+        }
+      })
+    }
   }
 })
 </script>
