@@ -1,12 +1,16 @@
-export default function dicerollerSubmit (diceString: String) {
+export default function dicerollerSubmit (diceString: String): Array<DiceRoll> {
   let strings = diceString.split(',')
+  let rolls: Array<DiceRoll> = []
 
   console.log(strings)
 
   strings.forEach((item) => {
     let roll = parseDiceString(item)
-    // TODO - Decide what to do with the roll
+
+    rolls.push(roll)
   })
+
+  return rolls
 }
 
 // Code is based from gefjon/dice@github
@@ -28,9 +32,9 @@ function parseDiceString (str: string) {
 }
 
 class DiceRoll {
-  private count: Number
-  private size: Number
-  private mod: Number
+  public count: Number
+  public size: Number
+  public mod: Number
 
   constructor (count: Number, size: Number, mod: Number) {
     this.count = count
