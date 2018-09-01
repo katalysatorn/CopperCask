@@ -15,7 +15,7 @@ export default function dicerollerSubmit (diceString: String): Array<DiceRoll> {
 
 // Code is based from gefjon/dice@github
 // Had to adapt as I was getting an error from their library
-function parseDiceString (str: string) {
+function parseDiceString (str: string): DiceRoll {
   str = str.replace(/ /g, '')
 
   let re = /(\d*)[dD](\d+)([+-]\d+)/
