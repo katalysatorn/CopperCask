@@ -16,6 +16,7 @@
         }
       ]"
     />
+    <notifications group="notifGroup" position="bottom right" />
   </div>
 </template>
 

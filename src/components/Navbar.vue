@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import dicerollerSubmit from '../Diceroller'
+import { dicerollerSubmit, rollDice} from '@/Diceroller';
 
 export default Vue.extend({
   props: {
@@ -34,16 +34,36 @@ export default Vue.extend({
     }
   },
   mounted () {
+
     let f: HTMLElement | null = document.getElementById('dicerollerform')
 
     if (f) {
       f.addEventListener('keydown', (e) => {
         if (e.keyCode === 13) {
           e.preventDefault()
-          console.log(dicerollerSubmit(this.diceString))
+
+          let returnString = ''
+
+          try {
+            dicerollerSubmit(this.diceString).forEach(roll => {
+              returnString += `
+                Roll '${roll.count}d${roll.size} ${roll.mod} gave: ${rollDice(1, roll.size, roll.count) + roll.mod}'
+              `
+            })
+          } catch (e) {
+            returnString = e.message
+          }
+
+          this.$notify({
+            group: 'notifGroup',
+            title: 'Roll Result: 🎲',
+            text: returnString.toString(),
+            duration: 10 * 1000
+          })
         }
       })
     }
+
   }
 })
 </script>
