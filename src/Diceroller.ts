@@ -32,7 +32,7 @@ export { dicerollerSubmit, rollDice }
 function parseDiceString (str: string): DiceRoll {
   str = str.replace(/ /g, '')
 
-  let re = /(\d*)[dD](\d+)([+-]\d+)/
+  let re = /(\d*)[dD](\d+)([+-]\d+)?/
   let res = re.exec(str)
   if (!res) { throw new Error(`Wanted a dice string but was passed '${str}'`) }
 
