@@ -2,12 +2,13 @@
   <b-navbar toggleable="md">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="#">{{ brand }}</b-navbar-brand>
+    <b-navbar-brand to="/">{{ brand }}</b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav>
-        <b-nav-item href="#">Characters</b-nav-item>
-        <b-nav-item href="#">Battle</b-nav-item>
+        <b-nav-item to="/characters">Characters</b-nav-item>
+        <b-nav-item to="/battle">Battle</b-nav-item>
+        <b-nav-item to="/newchar">New Character</b-nav-item>
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
@@ -22,7 +23,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { dicerollerSubmit, rollDice} from '@/Diceroller';
+import { dicerollerSubmit, rollDice } from '@/Diceroller'
 
 export default Vue.extend({
   props: {
@@ -34,7 +35,6 @@ export default Vue.extend({
     }
   },
   mounted () {
-
     let f: HTMLElement | null = document.getElementById('dicerollerform')
 
     if (f) {
@@ -47,8 +47,8 @@ export default Vue.extend({
           try {
             dicerollerSubmit(this.diceString).forEach(roll => {
               returnString = `For ${roll.count}d${roll.size}`
-              if (roll.mod !== NaN) {
-                switch(Math.sign(roll.mod)) {
+              if (isNaN(roll.mod)) {
+                switch (Math.sign(roll.mod)) {
                   case 0: break
                   case 1: returnString += ` + ${roll.mod}`; break
                   case -1: returnString += ` - ${Math.abs(roll.mod)}`; break
@@ -69,7 +69,6 @@ export default Vue.extend({
         }
       })
     }
-
   }
 })
 </script>
