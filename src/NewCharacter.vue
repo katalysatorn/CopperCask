@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <Navbar brand="CopperCask" />
-    <notifications group="notifGroup" position="bottom right" />
     <p>New Character Page</p>
   </div>
 </template>

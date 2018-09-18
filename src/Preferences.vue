@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>Character Page</p>
+    <p>Preferences/Settings Page</p>
   </div>
 </template>
 

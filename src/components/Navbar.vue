@@ -15,7 +15,7 @@
         <b-nav-form>
           <b-form-input v-model="diceString" size="sm" id="dicerollerform" class="mr-sm-2" type="text" placeholder="Try '2d6 + 3, 8d5 - 4'" />
         </b-nav-form>
-        <b-button size="sm" class="my-2 my-sm-0">Preferences</b-button>
+        <b-button to="/preferences" size="sm" class="my-2 my-sm-0">Preferences</b-button>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

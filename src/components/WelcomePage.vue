@@ -9,21 +9,20 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  props: {
-    header: {
-      type: String,
-      required: true
-    },
-    leader: {
-      type: String,
-      required: true
-    },
-    information: {
-      type: String
-    },
-    buttons: {
-      type: Array,
-      required: true
+  data: () => {
+    return {
+      header: "CopperCask",
+      brand: "img/logo.png",
+      leader: "A simple character manager for tabletop RPG's",
+      buttons: [
+        {
+          text: 'Contact the developer',
+          link: 'mailto:blair.burton@outlook.com'
+        }, {
+          text: 'See the source',
+          link: 'https://github.com/katalysatorn/CopperCask'
+        }
+      ]
     }
   }
 })
