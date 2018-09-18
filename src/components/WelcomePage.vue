@@ -11,9 +11,9 @@ import Vue from 'vue'
 export default Vue.extend({
   data: () => {
     return {
-      header: "CopperCask",
-      brand: "img/logo.png",
-      leader: "A simple character manager for tabletop RPG's",
+      header: 'CopperCask',
+      brand: 'img/logo.png',
+      leader: 'A simple character manager for tabletop RPG\'s',
       buttons: [
         {
           text: 'Contact the developer',
