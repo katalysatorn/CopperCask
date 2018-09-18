@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <Navbar brand="CopperCask" />
+    <notifications group="notifGroup" position="bottom right" />
+
     <WelcomePage
       header="CopperCask"
       brand="img/logo.png"
@@ -16,7 +18,6 @@
         }
       ]"
     />
-    <notifications group="notifGroup" position="bottom right" />
   </div>
 </template>
 
