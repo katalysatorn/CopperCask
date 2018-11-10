@@ -47,25 +47,26 @@ export default Vue.extend({
           try {
             dicerollerSubmit(this.diceString).forEach(roll => {
               returnString = `For ${roll.count}d${roll.size}`
-              if (isNaN(roll.mod)) {
+              if (!isNaN(roll.mod)) {
+                console.log(roll.mod)
                 switch (Math.sign(roll.mod)) {
                   case 0: break
-                  case 1: returnString += ` + ${roll.mod}`; break
-                  case -1: returnString += ` - ${Math.abs(roll.mod)}`; break
+                  case 1: returnString += `+${roll.mod}`; break
+                  case -1: returnString += `-${Math.abs(roll.mod)}`; break
                 }
               }
               returnString += `: ${rollDice(1, roll.size, roll.count) + roll.mod}`
+
+              this.$notify({
+                group: 'notifGroup',
+                title: 'Roll Result: 🎲',
+                text: returnString,
+                duration: 10 * 1000
+              })
             })
           } catch (e) {
             returnString = e.message
           }
-
-          this.$notify({
-            group: 'notifGroup',
-            title: 'Roll Result: 🎲',
-            text: returnString,
-            duration: 10 * 1000
-          })
         }
       })
     }
