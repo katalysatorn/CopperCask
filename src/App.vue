@@ -18,5 +18,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-
+  .view {
+    margin: 2em;
+  }
 </style>

@@ -31,7 +31,6 @@ export default Vue.extend({
 <style scoped lang="scss">
   .jumbotron {
     background-color: #FFF;
-    margin: 0 2em;
   }
 
   .btn {
